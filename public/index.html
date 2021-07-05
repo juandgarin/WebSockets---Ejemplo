@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src='/socket.io/socket.io.js'></script>
+</head>
+<body>
+    <h1>
+        Bienvenido! En este proyecto verás el uso de Web Sockets
+    </h1>
+
+    <div>
+        <h2 style="color:red">
+            Cada vez que se actualiza el valor de aquí abajo, es una señal que envía el servidor hacia el Cliente
+        </h2>
+    </div>
+    <div id="mensajes"></div>
+    <div>
+        <span>
+            Total Conexiones actuales : 
+        </span>
+        <span id="conexiones"/>
+    </div>
+
+         
+    <script>
+        var socket = io.connect('http://localhost:8080',{
+            forceNew:true,
+        });
+        socket.on('conexiones',function(data){
+            document.getElementById('conexiones').innerHTML=  data;
+
+        })
+        socket.on('mensaje',function(data){
+            document.getElementById('mensajes').innerHTML= data;
+        });
+    </script>
+</body>
+</html>
