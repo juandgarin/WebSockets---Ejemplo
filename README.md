@@ -48,10 +48,8 @@ Una vez que cierres alguna de las pestañas que has abierto, verás cómo el SER
 indicando un nuevo número de conexiones actuales. 
 ```
 
-### Y las pruebas de estilo de codificación ⌨️
-
+###Terminando... ⌨️
  
-
 ```
  Eso es todo! Tu servidor está conectado a través de una especie de "Túnel" con los clientes conectados, permitiendo así que se manden
  constantemente señales... ésta es la manera en la que podemos presentar cambios del servidor en tiempo real.
