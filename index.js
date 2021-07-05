@@ -8,12 +8,10 @@ const server = require('http').Server(app);
 //Requerimos SOCKET.IO y lo asignamos a nuestro servidor
 const io = require('socket.io')(server);
 
-
 //En nuestra Carpeta Public se encuentra nuestro  
 //archivo index.html el cuál será servido por nuestra aplicación al cliente.
 //Creamos middleware que sirve nuestra carpeta PUBLIC ante cualquier petición a nuestro servidor
 app.use(express.static('public'));
-
 
 //Ponemos a 0 la variable que irá aumentando en cada SEÑAL que envíe el servidor a LOS clientes conectados
 var numero_señal = 0;
@@ -21,8 +19,6 @@ var numero_señal = 0;
 //Creamos una variable para contar los clientes conectados
 var total_conexiones = 0;
  
-
-
 io.on('connection',function(s){
     //Ante la conexión de un cliente, aumentamos la variable en 1
     total_conexiones+= 1;
@@ -33,10 +29,7 @@ io.on('connection',function(s){
         total_conexiones-=1;
         io.emit('conexiones',total_conexiones)
     })
-   
 })
-
-
 
 setInterval(function(){
     numero_señal += 1;
